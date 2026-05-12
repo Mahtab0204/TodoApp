@@ -19,8 +19,15 @@ const NewTodo = (props) => {
 
     const handleSubmit=(e)=>{
     e.preventDefault();
-   // console.log(todo);
-    props.getNewTodo(todo);
+  
+    const {title,desc}=todo;
+    if(title.trim()===""||desc.trim()==="") {
+        alert("Please fill all the fields");
+        return;
+    } 
+    else{
+        props.getNewTodo(todo);
+    }
     setTodo({
         title:"",
         desc:""
